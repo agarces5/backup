@@ -4,9 +4,12 @@ use clap::Parser;
 
 /// Simple program to backup directories.
 /// Enter full origin/dest path.
-/// Example: -o "C:\Users\agarces\Documents" -d "C:\Users\agarces\Documents\Nueva" Nextcloud-backup-codes.txt
+/// Example: -o "\\PC-01\\C$\Users\user-01" -d "\\PC-01-NEW\C$\Users\user-01" *.txt
 #[derive(Parser, Debug)]
-#[command(author, version, about, long_about = None)]
+#[command(
+    help_template = "{about-section} \n {usage-heading} {usage} \n {all-args} {tab} \n\n Autor: {author-with-newline}"
+)]
+#[command(author = "Antonio Garcés", version, about, long_about)]
 struct Args {
     /// Path with withspaces should be quoted ("Ej. \\PC00000\C$\Users o "C:\Program Files"")
     #[arg(short, long)]
